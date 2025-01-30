@@ -38,6 +38,8 @@ def qr_check_format(fmt: int, debug: int = 1) -> int:
             
             In binary, subtraction is addition since 1 - 1 = 0 = 1 + 1.
             So fmt ^ (g << i) subtracts g 2^i times from fmt. (^ is XOR which is bit-wise addition, with no carry)
+            You can think of fmt ^ g as fmt subtracting g 1 time simply because 
+            (fmt ^ g) ^ g = fmt, so adding g back negates subtracting g.
             """
             if debug:
                 print(f"Bit XOR      :\t\t {(g << i):015b}")
