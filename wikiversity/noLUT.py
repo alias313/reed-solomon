@@ -46,11 +46,18 @@ def gf_mult_noLUT(x, y, prim=0):
         result = cl_div(result, prim)
 
     return result
+
+x = 0b11001001
+y = 0b11110101
+example = gf_mult_noLUT(x,y,prim=0x11d)
+print(f"{x=}*{y=} (mod 285): {example:04}")
+
+"""
 for i in range(1000):
     x = 0b11001001+i
     y = 0b11110101+i
     example = gf_mult_noLUT(x,y,prim=0x11d)
     if example >= 255:
         print(f"{x=}*{y=} (mod 285): {example:04}")
-
+"""
 
