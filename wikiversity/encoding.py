@@ -1,4 +1,12 @@
-from arithmetic_gf import gf_mul
+from arithmetic_gf import gf_mul, gf_pow
+from polynomial_gf import gf_poly_mul
+
+def rs_generator_poly(nsym):
+    '''Generate an irreducible generator polynomial'''
+    g = [1]
+    for i in range(0, nsym):
+        g = gf_poly_mul(g, [1, gf_pow(2, i)])
+    return g
 
 def rs_encode_msg(msg_in, nsym):
     '''Reed-Solomon main encoding function, using polynomial division (algorithm Extended Synthetic Division)'''
