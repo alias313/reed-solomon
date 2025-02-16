@@ -23,6 +23,12 @@ def init_tables(prim=0x11d):
         gf_exp[i] = gf_exp[i - 255]
     return [gf_log, gf_exp]
 
+def gf_add(x, y):
+    return x ^ y
+
+def gf_sub(x, y):
+    return x ^ y # in binary galois field, subtraction is just the same as addition (since we mod 2)
+
 def gf_mul(x,y):
     if x==0 or y==0:
         return 0
